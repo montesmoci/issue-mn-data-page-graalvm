@@ -1,0 +1,33 @@
+micronaut:
+  application:
+    name: issueMnDataPageGraalvm
+netty:
+  default:
+    allocator:
+      max-order: 3
+datasources:
+  default:
+    url: jdbc:h2:mem:devDb;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;IGNORECASE=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ""
+jpa:
+  default:
+    entity-scan:
+      packages: issue.mn.data.page.graalvm
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+---
+bootstrap:
+  books:
+    -
+      author: Foo Bar
+      title: 'foobarbaz: My life story in bits and bytes'
+    -
+      author: Theodor Seuss Geisel
+      title: 'The Cat in the Hat'
+    -
+      author: Charles Kelly
+      title: 'The Pepe Silvia Mystery'
